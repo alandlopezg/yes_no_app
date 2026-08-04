@@ -23,12 +23,12 @@ class ChatScreen extends StatelessWidget {
         ),
         title: Text('Mi Amor'),
       ),
-      body: _chatView(),
+      body: _ChatView(),
     );
   }
 }
 
-class _chatView extends StatelessWidget {
+class _ChatView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
@@ -41,6 +41,7 @@ class _chatView extends StatelessWidget {
           children: [
             Expanded(
               child: ListView.builder(
+                controller: chatProvider.chatScrollController,
                 itemCount: chatProvider.messageList.length,
                 itemBuilder: (context, index) {
                   final message = chatProvider.messageList[index];
